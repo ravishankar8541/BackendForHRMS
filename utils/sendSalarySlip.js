@@ -76,7 +76,7 @@ const sendSalarySlip = async (email, data) => {
    
    
    
-   const transporter = nodemailer.createTransport({
+   /*const transporter = nodemailer.createTransport({
        host: "smtp.titan.email",
       port: 465,
       secure: true,
@@ -84,7 +84,15 @@ const sendSalarySlip = async (email, data) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
       }
-    });
+    }); */
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    }); 
 
     // Safe filename
     const safeName = (data.employeeName || "Employee").replace(/[^a-zA-Z0-9]/g, '_');

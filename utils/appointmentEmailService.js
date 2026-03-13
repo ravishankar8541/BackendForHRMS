@@ -72,6 +72,7 @@ const sendAppointmentLetter = async (email, data) => {
     `;
 
     // 6. Email Transport & Sending
+    /*
     const transporter = nodemailer.createTransport({
        host: "smtp.titan.email",
       port: 465,
@@ -81,6 +82,16 @@ const sendAppointmentLetter = async (email, data) => {
         pass: process.env.EMAIL_PASS
       }
     });
+    */
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    
 
     try {
         await transporter.sendMail({

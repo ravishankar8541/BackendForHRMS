@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const generateFNFPDF = require('./generateFNFPDF'); // Import the generator we just made
 
-const transporter = nodemailer.createTransport({
+/*const transporter = nodemailer.createTransport({
        host: "smtp.titan.email",
       port: 465,
       secure: true,
@@ -9,7 +9,16 @@ const transporter = nodemailer.createTransport({
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
       }
-    });
+    }); */
+
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    }); 
 
 /**
  * Sends a Full & Final Settlement Statement email with PDF attachment
