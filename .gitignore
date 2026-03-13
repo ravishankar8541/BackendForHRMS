@@ -1,0 +1,28 @@
+# Environment / secrets (NEVER commit these!)
+.env
+.env.*
+!.env.example
+
+# IDE / editor folders
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+
+# OS junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Temporary / build folders
+dist/
+build/
+out/
+tmp/
+temp/
+
+# Testing / coverage
+coverage/
+.nyc_output/
+htmlcov/
